@@ -12,23 +12,42 @@ Assignment: M03 Lab - Case Study: Lists, Functions, and Classes
 #This program is designed collect input information from the user about their
 #vehicle.  The program will then print out vehicle information.  
 
-#This function was designed to store the Vehicle_type iformation.
-class Vehicle_type(): 
-    def __init__(self, year, make, model):
-        self.year
-        self.make
-        self.model
-
-#This function was designed to store the vehicle specification information.
-class Vehicle_specs(Vehicle_type): 
-    def __init__(self, color, engine, door, roof, *args, **kwargs):
-        self.color
-        self.engine
-        self.door
-        self.roof
-             
-wheels = Vehicle_specs(color="red", engine="V8", door="2-door", roof="sun-roof")
+class Vehicle():
+    def __init__(self, vehicle_type):
+        self.vehicle_type = vehicle_type
         
-print(wheels)
+        
+class Automobile(Vehicle):
+    def __init__(self, car, truck, boat, plane):
+        self.car = car
+        self.truck = truck
+        self.boat = boat
+        self.plane = plane
 
-            
+    
+    vehicle_type = int(input("What type of vehicle do you have?  1= Car, 2= Truck, =: Boat, 4= Plane: "))
+    if vehicle_type == 1:
+        print("You have a car.")
+    elif vehicle_type == 2:
+        print("You have a truck.")
+    elif vehicle_type == 3:
+        print("You have a boat.")
+    elif vehicle_type == 4:
+        print("You have a plane.")
+    else:
+        print("You did not enter a valid vehicle type.")
+
+
+class vehicle_year(Automobile):
+    def __init__(self, year):
+        self.year = year
+        
+    year = int(input("Enter the year of your vehicle.  Ex. 2000: "))
+    if year >= 1885:
+        print(f"The year of your vehicle is: {year}.")
+    
+    else:
+        print("You did not enter a valid vehicle year.")
+
+
+print("Take care of your vehicle. Keep the oil changed!")
